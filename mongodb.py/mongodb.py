@@ -7,7 +7,7 @@ import urllib.parse
 df = pd.read_csv('Apple_stock_data.csv')
 
 # Connect to MongoDB
-password = "qwertyuiop"
+password = 
 client = MongoClient( f"mongodb+srv://EchoTrade:{password}@echo-trade.ujnvr.mongodb.net/?retryWrites=true&w=majority&appName=Echo-Trade")
 db = client['Stock_Prices']
 collection = db['Apple']  
