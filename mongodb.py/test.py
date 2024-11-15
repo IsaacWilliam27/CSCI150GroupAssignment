@@ -2,7 +2,7 @@ import yfinance as yf
 from pymongo import MongoClient
 
 # Reconnect to MongoDB using the same credentials
-password = "qwertyuiop"
+password = 
 client = MongoClient(f"mongodb+srv://EchoTrade:{password}@echo-trade.ujnvr.mongodb.net/?retryWrites=true&w=majority&appName=Echo-Trade")
 db = client['Stock_Prices']
 collection = db['Apple']
