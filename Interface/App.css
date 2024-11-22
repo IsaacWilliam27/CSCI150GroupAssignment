@@ -1,0 +1,135 @@
+/* Sidebar Styling (Fixed Left for Desktop, Slide-in for Mobile) */
+.sidebar {
+  width: 260px;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #1e2433;
+  color: #cfd1d8;
+  overflow-y: auto;
+  transition: transform 0.3s ease-in-out;
+  z-index: 100;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
+  padding-top: 20px;
+  transform: translateX(-100%); /* Initially hidden */
+}
+
+/* Sidebar Open State for Mobile */
+.sidebar.sidebar-open {
+  transform: translateX(0); /* Slide in from left when open */
+}
+
+/* Overlay Styling for Sidebar on Mobile */
+.overlay {
+  display: none; /* Hidden by default */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 99;
+  transition: opacity 0.3s ease;
+}
+
+.overlay.show {
+  display: block;
+  opacity: 1;
+}
+
+/* Sidebar Title Styling */
+.sidebar-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #ffffff;
+  background-color: #1d2634;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Sidebar List Styling */
+.sidebar-list {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+/* Sidebar List Items */
+.sidebar-list-item {
+  padding: 15px 20px;
+  font-size: 16px;
+  color: #b0b4c3;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  border-radius: 8px;
+  margin: 5px 15px;
+}
+
+.sidebar-list-item:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+.sidebar-list-item .icon {
+  margin-right: 10px;
+  font-size: 20px;
+  color: #ffd700;
+  transition: color 0.2s ease;
+}
+
+.sidebar-list-item:hover .icon {
+  color: #ffffff;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%; /* Full-width sidebar on mobile */
+    transform: translateX(-100%); /* Hidden by default on mobile */
+  }
+
+  /* Show overlay and slide-in sidebar on mobile */
+  .sidebar.sidebar-open {
+    transform: translateX(0); /* Slide in when open */
+  }
+
+  .overlay.show {
+    display: block;
+    opacity: 1;
+  }
+}
+
+/* Sidebar Toggle Button Styling */
+.menu-toggle {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  background-color: #1e2433;
+  border: none;
+  padding: 12px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  z-index: 150;
+}
+
+.menu-toggle .icon_header {
+  font-size: 24px;
+  color: #fff;
+}
+
+.menu-toggle:hover {
+  transform: scale(1.1);
+  background-color: #2a3140;
+}
+
+/* Hide toggle button when sidebar is open */
+.sidebar-open + .menu-toggle {
+  display: none;
+}
